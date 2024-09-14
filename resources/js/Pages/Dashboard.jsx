@@ -32,7 +32,7 @@ export default function Dashboard() {
     return (
         <UserLayout>
             <div className="w-full text-black mx-auto mt-32 text-center">
-                <h1 className="text-3xl mb-3">Men's Collection</h1>
+                <h1 className="text-5xl mb-3">Men's Collection</h1>
                 <p>Find everything you need to look and feel your best, shop the latest men’s</p>
                 <p>fashion and lifestyle products</p>
             </div>
@@ -44,19 +44,11 @@ export default function Dashboard() {
                 className="flex overflow-x-auto space-x-4 scrollbar-hide cursor-grab"
                 onMouseDown={handleMouseDown}
             >
-                <Category name="Jacket" />
-                <Category name="Pant & Short" />
-                <Category name="Shirts" />
-                <Category name="Shoes" />
-                <Category name="Jacket" />
-                <Category name="Jacket" />
-                <Category name="Jacket" />
-                <Category name="Jacket" />
-                <Category name="Jacket" />
-                <Category name="Jacket" />
+                 {[...Array(10)].map((_, index) => (
+            <Category key={index} />
+              ))}
             </div>
         </div>
-    );
 
 
     <div className="mt-8">
@@ -78,23 +70,14 @@ export default function Dashboard() {
     </div>
 
     <div className="py-4 px-4">
-    <div className="container mx-auto">
+      <div className="container mx-auto">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+          {[...Array(10)].map((_, index) => (
+            <Card key={index} />
+          ))}
         </div>
+      </div>
     </div>
-</div>
-
-
 
     <div>
         <div className="flex mb-8 m-3 w-full items-center gap-4">
@@ -113,21 +96,10 @@ export default function Dashboard() {
             <div
                 ref={scrollContainerRef}
                 className="flex overflow-x-auto space-x-4 scrollbar-hide cursor-grab px-4"
-                onMouseDown={handleMouseDown}
-            >
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
-                <Card />
+                onMouseDown={handleMouseDown}>
+             {[...Array(14)].map((_, index) => (
+            <Card key={index} />
+              ))}
             </div>
         </div>
     </div>

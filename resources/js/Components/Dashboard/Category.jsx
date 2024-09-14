@@ -9,7 +9,7 @@ export default function Category({ name }) {
                     alt="Product"
                     className="w-full h-full object-cover rounded-lg"
                 />
-                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/30 to-transparent opacity-40 pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-black/85 to-transparent opacity-40 pointer-events-none" />
                 <div className="absolute inset-0 flex items-center justify-center text-white text-xl font-bold">
                     {name}
                 </div>
