@@ -29,9 +29,13 @@ use Inertia\Inertia;
 //     return Inertia::render('Dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/index', function(){
-    return Inertia::render('Dashboard');
+Route::get('/', function(){
+    return Inertia::render('Home');
 });
+Route::get('/shop', function(){
+    return Inertia::render('Shop');
+});
+
 
 
 // Route::middleware('auth')->group(function () {

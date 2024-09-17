@@ -6,9 +6,25 @@
     @apply bg-blue-500;
 }
 
-body {
-    /* background-color: rgb(242, 242, 247); */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden; /* Mencegah scroll horizontal */
 }
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Menjamin tinggi body minimal setara dengan tinggi layar */
+    box-sizing: border-box;
+}
+
+#root {
+    flex: 1; /* Membuat konten mengikuti ukuran layar secara fleksibel */
+}
+
 
 
 .no-scrollbar::-webkit-scrollbar {

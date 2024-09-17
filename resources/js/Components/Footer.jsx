@@ -5,6 +5,12 @@ export default function Footer() {
     return (
         <div className="w-full bg-black text-white">
             {/* Footer Content */}
+            <div className="flex items-center px-9">
+                <img 
+                    src="img/logo.png" 
+                    alt="Logo" 
+                    className="h-12 w-12 object-contain text-white"/>
+            </div>
             <div className="flex flex-col md:flex-row justify-between py-8 px-4">
                 {/* Company Info */}
                 <div className="w-full md:w-1/2 mb-6 md:mb-0">

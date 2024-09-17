@@ -1,13 +1,15 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import UserLayout from "@/Layouts/UserLayout";
 import Category from "@/Components/Dashboard/Category";
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 import {BoltIcon } from '@heroicons/react/24/solid';
 import Card from "@/Components/Dashboard/Card";
 import Feedback from "@/Components/Footer/Feedback";
+import Filter from "@/Components/Dashboard/Filter";
 
 export default function Dashboard() {
     const scrollContainerRef = useRef(null);
+    const [isFilterVisible, setIsFilterVisible] = useState(false);
 
     const handleMouseDown = (e) => {
         e.preventDefault();
@@ -28,9 +30,15 @@ export default function Dashboard() {
         document.addEventListener("mousemove", handleMouseMove);
         document.addEventListener("mouseup", handleMouseUp);
     };
-
+    const toggleFilter = () => {
+        setIsFilterVisible(!isFilterVisible);
+    };
+    const handleCloseFilter = () => {
+        setIsFilterVisible(false);
+    }
     return (
         <UserLayout>
+            <Filter isVisible={isFilterVisible} onClose={handleCloseFilter} />
             <div className="w-full text-black mx-auto mt-32 text-center">
                 <h1 className="text-5xl mb-3">Men's Collection</h1>
                 <p>Find everything you need to look and feel your best, shop the latest men’s</p>
@@ -52,22 +60,31 @@ export default function Dashboard() {
 
 
     <div className="mt-8">
-    <div className="flex justify-between mb-3 px-4 lg:px-6">
         <div>
-            <h1 className="text-2xl">Give all you need</h1>
+        <div className="mb-5">
+            <h1 className="text-3xl font-medium">Give all you need</h1>
         </div>
-        <div className="flex items-center space-x-2">
-            <div className="relative">
-                <input
-                    type="text"
-                    className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg"
-                    placeholder="Search your style"
-                />
-                <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
+            <div className="flex justify-between mb-3 px-4 lg:px-6">
+                <div className="flex justify-center items-center text-center">
+                    <button 
+                        onClick={toggleFilter}
+                        className="bg-transparent w-16 h-full font-semibold text-sm border-gray-900 border-2 text-center text-black">
+                        Filters
+                    </button>
+                </div>
+                <div className="flex items-center space-x-2">
+                    <div className="relative">
+                        <input
+                            type="text"
+                            className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg"
+                            placeholder="Search your style"
+                        />
+                        <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-500" />
+                    </div>
+                    <button className="bg-black text-white py-2 px-4 rounded">Search</button>
+                </div>
             </div>
-            <button className="bg-black text-white py-2 px-4 rounded">Search</button>
         </div>
-    </div>
 
     <div className="py-4 px-4">
       <div className="container mx-auto">
@@ -104,9 +121,6 @@ export default function Dashboard() {
         </div>
     </div>
 </div>
-
-
-
 
             <div>
                 <Feedback/>

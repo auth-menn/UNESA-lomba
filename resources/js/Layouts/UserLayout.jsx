@@ -15,7 +15,7 @@ const UserLayout = ({ children }) => {
                 <Navbar />
             </aside>
 
-            <main className="w-full mb-12">
+            <main className="w-full">
                 {children}
             </main>
 

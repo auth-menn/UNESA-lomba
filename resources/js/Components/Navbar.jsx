@@ -8,7 +8,7 @@ import {
 
 export default function Navbar() {
     return (
-        <nav className="navbar w-screen h-20 flex justify-between items-center text-black fixed z-50 bg-white top-0 left-0">
+        <nav className="navbar w-screen h-20 flex justify-between items-center text-black fixed z-50 bg-transparent top-0 left-0">
           
             
             <div className="flex items-center px-9">
