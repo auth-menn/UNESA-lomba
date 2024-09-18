@@ -3,9 +3,9 @@ import { EnvelopeIcon, PhoneIcon } from '@heroicons/react/24/outline';
 
 export default function Footer() {
     return (
-        <div className="w-full bg-black text-white">
+        <footer className="w-full bg-black text-white px-9">
             {/* Footer Content */}
-            <div className="flex items-center px-9">
+            <div className="flex items-center ">
                 <img 
                     src="img/logo.png" 
                     alt="Logo" 
@@ -32,7 +32,7 @@ export default function Footer() {
                 </div>
 
                 {/* Collections and Social Media */}
-                <div className="w-full md:w-1/4 flex flex-col md:flex-row justify-between">
+                <div className="w-full md:w-1/4 flex flex-col md:flex-row gap-32">
                     <div className="mb-6 md:mb-0">
                         <h1 className="mb-3 font-semibold text-xl">Collection</h1>
                         <p>Jacket</p>
@@ -51,6 +51,6 @@ export default function Footer() {
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 }

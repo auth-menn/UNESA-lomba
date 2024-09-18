@@ -1,27 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import { 
     HomeIcon,
     ShoppingBagIcon,
-    MagnifyingGlassIcon,
-    BeakerIcon
+    MagnifyingGlassIcon
 } from '@heroicons/react/24/outline';
+import Cart from "./Dashboard/Cart";
 
 export default function Navbar() {
+    const [isCartVisible, setIsCartVisible] = useState(false);
+
+    const toggleCartVisible = () => {
+        setIsCartVisible(!isCartVisible);
+    };
+
     return (
         <nav className="navbar w-screen h-20 flex justify-between items-center text-black fixed z-50 bg-transparent top-0 left-0">
-          
-            
             <div className="flex items-center px-9">
                 <img 
                     src="img/logo.png" 
                     alt="Logo" 
                     className="h-12 w-12 object-contain"/>
             </div>
-
             
             <div className="flex-grow flex px-5">
                 <ul className="flex space-x-8">
-                
                     <div className="flex items-center gap-2 text-[#0d0d12] text-xl font-medium font-['Inter Tight'] leading-7 tracking-wide">
                         <span>Home</span>
                     </div>
@@ -34,7 +36,6 @@ export default function Navbar() {
                 </ul>
             </div>
 
-        
             <div className="h-[47px] flex justify-start items-center gap-8 pr-16">
                 <div className="flex items-center gap-2">
                     <MagnifyingGlassIcon className="w-5 h-5" />
@@ -45,7 +46,9 @@ export default function Navbar() {
                 <div className="flex items-center gap-2">
                     <ShoppingBagIcon className="w-5 h-5" />
                     <div className="text-[#0d0d12] text-lg font-medium font-['Inter Tight'] leading-7 tracking-wide pr-8">
-                        <span>Cart</span> (0)
+                        <span role="button" onClick={toggleCartVisible}>
+                            Cart
+                        </span> (0)
                     </div>
                 </div>
                 <div className="px-3 py-1 border border-[#0d0d12] justify-start rounded-sm items-center gap-2.5 flex pr-4">
@@ -54,6 +57,8 @@ export default function Navbar() {
                     </div>
                 </div>
             </div>
+
+            <Cart isCartVisible={isCartVisible} CartOnClose={toggleCartVisible} />
         </nav>
     );
 }

@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import UserLayout from "@/Layouts/UserLayout";
 import Category from "@/Components/Dashboard/Category";
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
+
 import { BoltIcon } from '@heroicons/react/24/solid';
 import Card from "@/Components/Dashboard/Card";
 import Feedback from "@/Components/Footer/Feedback";
@@ -9,7 +9,7 @@ import Subscribe from "@/Components/Dashboard/Subscribe";
 
 export default function Dashboard() {
     const scrollContainerRef = useRef(null);
-    const [isFilterVisible, setIsFilterVisible] = useState(false);
+
 
     const handleMouseDown = (e) => {
         e.preventDefault();
