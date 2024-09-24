@@ -30,7 +30,9 @@ export default function Discussion() {
        ></textarea>
        <button className="mt-4 bg-black text-white py-2 px-6 shadow-lg hover:bg-gray-800 transition-all">
            Start Discussion
+           
        </button>
+       
    </div>
       </div>
     );

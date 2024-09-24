@@ -1,22 +1,45 @@
 import { StarIcon } from '@heroicons/react/24/solid';
+import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/solid'; 
+import { useState } from 'react';
 
 export default function Product() {
+    const [quantity, setQuantity] = useState(1); 
+
+    const handleIncrement = () => {
+        setQuantity(prev => prev + 1);
+    };
+
+    const handleDecrement = () => {
+        if (quantity > 1) {
+            setQuantity(prev => prev - 1);
+        }
+    };
+
     return (
         <div className="w-full flex flex-col md:flex-row md:px-12 py-8">
             {/* Bagian Kiri: Gambar Produk */}
-            <div className="md:w-1/2 w-full p-4">
-                <img 
-                    src="img/Detail_Product.png" 
-                    alt="Jacket" 
-                    className="h-auto w-full max-h-96 object-contain rounded-lg shadow-lg mb-4"
-                />
-                <div className="flex justify-between space-x-2">
-                    {[...Array(4)].map((_, index) => (
+            <div className="md:w-1/2 w-full p-4 relative">
+                {/* Main Image with Navigation Arrows */}
+                <div className="relative">
+                    <div className="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 cursor-pointer bg-white rounded-full shadow hover:bg-gray-200 transition-all z-10">
+                        <ArrowLeftIcon className="h-6 w-6 text-gray-700" />
+                    </div>
+                    <div className="absolute top-1/2 right-0 transform -translate-y-1/2 p-2 cursor-pointer bg-white rounded-full shadow hover:bg-gray-200 transition-all z-10">
+                        <ArrowRightIcon className="h-6 w-6 text-gray-700" />
+                    </div>
+                    <img 
+                        src="img/Detail_Product.png" 
+                        alt="Jacket" 
+                        className="h-auto w-full max-h-[500px] object-contain mb-2" 
+                    />
+                </div>
+                <div className="flex space-x-0"> 
+                    {[...Array(7)].map((_, index) => (
                         <img 
                             key={index}
                             src="img/Detail_Product.png" 
-                            alt={`Thumbnail ${index}`} 
-                            className="h-24 w-1/4 object-contain border-2 border-gray-300 rounded-md cursor-pointer hover:border-white transition-all"
+                            alt={`Thumbnail ${index + 1}`} 
+                            className="h-20 w-1/4 object-contain"  
                         />
                     ))}
                 </div>
@@ -26,7 +49,7 @@ export default function Product() {
             <div className="md:w-1/2 w-full mt-8 md:mt-0 md:pl-8">
                 {/* Flash Sale */}
                 <div className="flex justify-between items-center mb-4">
-                    <p className="bg-orange-500 text-white px-2 py-1 inline-block max-w-max text-sm">
+                    <p className="bg-orange-100 text-red-500 px-2 py-1 inline-block max-w-max text-sm">
                         30% OFF
                     </p>
                 </div>
@@ -38,32 +61,34 @@ export default function Product() {
                 {/* Rating */}
                 <div className="flex items-center mb-4">
                     {[...Array(5)].map((_, index) => (
-                        <StarIcon key={index} className='h-5 w-5 text-yellow-500' />
+                        <StarIcon key={index} className='h-5 w-5 text-yellow-500' />  
                     ))}
-                    <p className='text-white font-semibold ml-2'>(5,0) 800 Reviews</p>
+                    <p className="text-xs font-light mr-2"> (5.0) 800 Reviews</p> 
                 </div>
+                <hr className="mt-2 border border-gray-300" />
+                <br />
 
                 <div className="relative flex">
-                <img 
-                    src="img/FlashSale_Detail.png" 
-                    alt="Logo" 
-                    className="w-full h-full object-cover"
-                />
-                
-                <div className="absolute inset-0 flex items-center p-8">
-                <img 
-                    src="img/FlashSale.png" 
-                    alt="Logo" 
-                    className="w-24 h-12 object-cover"
-                />
-                    <div className="text-center">
-                        <div className="mb-5 text-xl text-white font-bold p-4">
-                            <h1>Bridging the physical and digital Style worlds</h1>
+                    <img 
+                        src="img/FlashSale_Detail.png" 
+                        alt="Logo" 
+                        className="w-full h-full object-cover"
+                    />
+                    
+                    <div className="absolute inset-0 flex items-center p-8">
+                        <img 
+                            src="img/FlashSale.png" 
+                            alt="Logo" 
+                            className="w-24 h-12 object-cover"
+                        />
+                        <div className="text-center">
+                            <div className="mb-5 text-xl text-white font-bold p-4">
+                                <h1>Bridging the physical and digital Style worlds</h1>
+                            </div>
                         </div>
                     </div>
-                    </div>
-                    </div>
-
+                </div>
+                <br />
 
                 {/* Deskripsi Produk */}
                 <h1>Description</h1>
@@ -73,26 +98,26 @@ export default function Product() {
                     it brings you both functionality and fashion.
                 </p>
 
-                <div className='flex gap-12'>
+                <div className='flex gap-12 '>
                     {/* Available Colors */}
-                    <div className="flex items-center mb-6">
-                        <p className="text-gray-400 mr-4">Available Colors:</p>
+                    <div className="mb-6">
+                        <p className="text-gray-400 mb-4">Available Colors:</p>
                         <div className="flex space-x-2">
-                            <div className="w-6 h-6 bg-gray-800 border border-white"></div>
-                            <div className="w-6 h-6 bg-green-500 border border-white"></div>
-                            <div className="w-6 h-6 bg-blue-500 border border-white"></div>
-                            <div className="w-6 h-6 bg-gray-400 border border-white"></div>
+                            <div className="w-8 h-8 bg-gray-800 border border-white"></div>
+                            <div className="w-8 h-8 bg-green-500 border border-white"></div>
+                            <div className="w-8 h-8 bg-blue-500 border border-white"></div>
+                            <div className="w-8 h-8 bg-gray-400 border border-white"></div>
                         </div>
                     </div>
 
                     {/* Available Sizes */}
-                    <div className="flex items-center mb-6">
-                        <p className="text-gray-400 mr-4">Available Size:</p>
+                    <div className="mb-6 px-56">
+                        <p className="text-gray-400 mb-3">Available Size:</p>
                         <div className="flex space-x-2">
-                            <div className="px-4 py-2 border border-gray-400 text-gray-400">S</div>
-                            <div className="px-4 py-2 border border-gray-400 text-gray-400">M</div>
-                            <div className="px-4 py-2 border border-gray-400 text-white bg-gray-600">L</div>
-                            <div className="px-4 py-2 border border-gray-400 text-gray-400">XL</div>
+                            <div className="px-3 py-1 border border-gray-400 text-gray-400 text-base">S</div>
+                            <div className="px-3 py-1 border border-gray-400 text-gray-400 text-base">M</div>
+                            <div className="px-3 py-1 border border-gray-400 text-white bg-gray-600 text-base">L</div>
+                            <div className="px-2 py-1 border border-gray-400 text-gray-400 text-base">XL</div>
                         </div>
                     </div>
                 </div>
@@ -100,9 +125,14 @@ export default function Product() {
                 {/* Quantity & Add to Cart */}
                 <div className="flex items-center mb-6">
                     <p className="text-gray-400 mr-4">Quantity:</p>
-                    <button className='border-black'>-</button>
-                    <input type="text" className="w-12 items-center justify-center text-center border-none bg-white text-black" placeholder="1" />
-                    <button>+</button>
+                    <button onClick={handleDecrement} className='border-2 px-2'>-</button>
+                    <input 
+                        type="text" 
+                        className="w-12 items-center justify-center text-center border-none bg-white text-black" 
+                        value={quantity} 
+                        readOnly
+                    />
+                    <button onClick={handleIncrement} className='border-2 px-2 border-black'>+</button>
                     <button className="bg-black text-white py-2 px-4 ml-4 border border-black hover:bg-gray-800 transition-all">
                         Add to Cart
                     </button>
@@ -116,27 +146,27 @@ export default function Product() {
                             <img 
                                 src="img/Tiktok.png" 
                                 alt="Tiktok" 
-                                className="h-auto w-auto max-h-96 object-contain rounded-lg shadow-lg"
+                                className="h-auto w-auto max-h-96"
                             />
                         </button>
                         <button className="flex justify-center items-center p-0 border-none bg-transparent">
                             <img 
                                 src="img/Facebook.png" 
                                 alt="Facebook" 
-                                className="h-auto w-auto max-h-96 object-contain rounded-lg shadow-lg"
+                                className="h-auto w-auto max-h-96"
                             />
                         </button>
                         <button className="flex justify-center items-center p-0 border-none bg-transparent">
                             <img 
                                 src="img/Instagram.png" 
                                 alt="Instagram" 
-                                className="h-auto w-auto max-h-96 object-contain rounded-lg shadow-lg"
+                                className="h-auto w-auto max-h-96"
                             />
                         </button>
                     </div>
-
                 </div>
-                {/* Tombol */}
+
+                {/* Buttons */}
                 <div className="flex items-center space-x-4 mt-6">
                     <button className="bg-white text-black py-2 px-6 border border-black hover:bg-gray-800 transition-all">
                         Try On
@@ -144,6 +174,7 @@ export default function Product() {
                     <button className="bg-black text-white w-80 py-2 px-6 transition-all">
                         Buy Now
                     </button>
+                    
                 </div>
             </div>
         </div>

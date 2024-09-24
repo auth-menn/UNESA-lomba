@@ -5,16 +5,19 @@ export default function Footer() {
     return (
         <footer className="w-full bg-black text-white px-9">
             {/* Footer Content */}
-            <div className="flex items-center ">
-                <img 
-                    src="img/logo.png" 
-                    alt="Logo" 
-                    className="h-12 w-12 object-contain text-white"/>
-            </div>
-            <div className="flex flex-col md:flex-row justify-between py-8 px-4">
+            <div className="flex flex-col items-start px-2 h-18"> {/* Change to flex-col for vertical alignment */}
+    <img 
+        src="img/Logow.png" 
+        alt="Logo" 
+        className="h-20 w-20 object-contain mb-" /> {/* Reduced bottom margin for better spacing */}
+    <h1 className="text-3xl text-white">ARQUANA</h1> {/* Add title below the logo */}
+</div>
+
+
+
+            <div className="flex flex-col md:flex-row justify-between py-8 px-2">
                 {/* Company Info */}
                 <div className="w-full md:w-1/2 mb-6 md:mb-0">
-                    <h1 className="text-3xl mb-4">ARQUANA</h1>
                     <p className="text-sm mb-4">
                         With Arquana, we empower consumers to explore fashion through innovative digital experiences,
                         bridging style and technology for a seamless shopping journey.

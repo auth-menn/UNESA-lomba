@@ -86,15 +86,15 @@ export default function Dashboard() {
             </div>
         </div>
 
-    <div className="py-4 px-4">
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-          {[...Array(10)].map((_, index) => (
-            <Card key={index} />
-          ))}
-        </div>
-      </div>
-    </div>
+        <div className="py-4 px-4">
+                    <div className="container mx-auto">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                            {[...Array(10)].map((_, index) => (
+                                <Card key={index} />
+                            ))}
+                        </div>
+                    </div>
+                </div>
 
     <div>
         <div className="flex mb-8 m-3 w-full items-center gap-4">
