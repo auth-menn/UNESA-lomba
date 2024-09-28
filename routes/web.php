@@ -38,13 +38,27 @@ Route::get('/shop', function(){
 Route::get('/detail-product', function(){
     return Inertia::render('DetailProduct');
 });
-
+Route::get('/shipping-adress', function(){
+    return Inertia::render('ShippingAdress');
+});
+Route::get('/transaction', function(){
+    return Inertia::render('Transaction');
+});
+Route::get('/adress', function(){
+    return Inertia::render('Adress');
+});
+Route::get('/account', function(){
+    return Inertia::render('Account');
+});
+Route::get('/confirm-order', function(){
+    return Inertia::render('ConfirmOrder');
+});
 
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
 //     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');app
 // });
 
 require __DIR__.'/auth.php';
