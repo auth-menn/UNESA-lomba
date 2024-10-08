@@ -9,22 +9,33 @@ import ShoppingSummary from '@/Components/Payment/ShoppingSummary';
 const ConfirmOrder = () => {
     return (
         <UserLayout>
-        <div className="container mx-auto p-4 py-32">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                {/* Column 1 */}
-                <div className="lg:col-span-2 space-y-6">
-                    <Checkout />
-                    <DetailProduct />
-                    <PaymentMethod />
-                </div>
+            <div className="container mx-auto p-4 py-32">
+                <h2 className="text-3xl font-semibold mb-8">Checkout</h2>
+                <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    {/* Left Column */}
+                    <div className="lg:col-span-2 space-y-6">
+                        <div className="border border-gray-300 p-4  shadow-sm">
+                            <Checkout />
+                        </div>
+                        <div className="border border-gray-300 p-4  shadow-sm">
+                            <DetailProduct />
+                        </div>
+                        <div className="border border-gray-300 p-4 shadow-sm">
+                            <PaymentMethod />
+                        </div>
+                    </div>
 
-                {/* Column 2 */}
-                <div className="space-y-6">
-                    <PromoCode />
-                    <ShoppingSummary />
+                    {/* Right Column */}
+                    <div className="space-y-6">
+                        <div>
+                            <PromoCode />
+                        </div>
+                        <div>
+                            <ShoppingSummary />
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
         </UserLayout>
     );
 };

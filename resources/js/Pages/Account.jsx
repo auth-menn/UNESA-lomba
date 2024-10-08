@@ -40,14 +40,16 @@ export default function EditProfile() {
 
     return (
         <UserLayout>
-            <div className="py-32 flex gap-10">
+            <div className="py-32 flex gap-10 justify-center">
                 {/* Sidebar */}
-                <Account name="Wahyu Kurnia" email="wahyukurniahandy@gmail.com" />
+                <div className="w-1/4">
+                    <Account name="Wahyu Kurnia" email="wahyukurniahandy@gmail.com" />
+                </div>
 
                 {/* Main content */}
-                <div className="flex-grow">
-                    <form onSubmit={handleSubmit} className="max-w-4xl p-8 bg-white shadow-md rounded-md">
-                        <h1 className="text-2xl font-bold mb-6">Edit Profile</h1>
+                <div className="w-full max-w-4xl">
+                    <form onSubmit={handleSubmit} className="p-8 bg-white shadow-md rounded-md space-y-6">
+                        <h1 className="text-xl font-bold mb-6">Detail Account</h1>
 
                         {/* Profile Picture */}
                         <div className="mb-6">
@@ -190,6 +192,27 @@ export default function EditProfile() {
                             </button>
                         </div>
                     </form>
+
+                    {/* Newsletter Section */}
+                    <div className="mt-12 bg-gray-100 p-6 rounded-md">
+                        <h2 className="text-lg font-semibold mb-4">Join our News Collection</h2>
+                        <p className="text-gray-600 mb-4">
+                            Join our Newsletter and stay informed about Update Collection
+                        </p>
+                        <div className="flex justify-center">
+                            <input
+                                type="email"
+                                placeholder="Enter your email"
+                                className="p-2 border border-gray-300 rounded-l-md w-72"
+                            />
+                            <button
+                                type="button"
+                                className="bg-black text-white px-6 py-2 rounded-r-md"
+                            >
+                                Submit
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </UserLayout>

@@ -91,7 +91,7 @@ export default function Transaction() {
                                     key={status}
                                     onClick={() => setSelectedStatus(status)}
                                     className={`px-4 py-2 rounded-md ${
-                                        selectedStatus === status ? "bg-black text-white" : "bg-gray-200 text-gray-700"
+                                        selectedStatus === status ? "bg-black text-white" : "bg-white text-gray-700"
                                     } transition`}
                                 >
                                     {status}
@@ -106,7 +106,7 @@ export default function Transaction() {
                             <label htmlFor="sort" className="text-gray-700 font-medium mr-2">
                                 Sort:
                             </label>
-                            <select id="sort" className="border border-gray-300 rounded-md p-2">
+                            <select id="sort" className="border border-gray-300 rounded-md">
                                 <option>Latest</option>
                                 <option>Oldest</option>
                             </select>
@@ -121,55 +121,68 @@ export default function Transaction() {
                         </div>
                     </div>
 
-                    {/* Transaction List */}
-                    <div className="space-y-6">
-                        {filteredTransactions.map((transaction, index) => (
-                            <div key={index} className="border border-gray-300 rounded-md p-6 bg-white shadow-sm">
-                                <div className="flex justify-between items-center mb-4">
-                                    <div>
-                                        <h3 className="text-gray-700 font-semibold">
-                                            Order ID: <span className="font-bold">{transaction.orderId}</span>
-                                        </h3>
-                                    </div>
-                                    <div className="text-right">
-                                        <p className="text-gray-500">Status: {transaction.status}</p>
-                                        <p className="text-lg font-bold text-black">
-                                            {formatRupiah(transaction.product.price)}
-                                        </p>
-                                    </div>
-                                </div>
+{/* Transaction List */}
+<div className="space-y-6">
+  {filteredTransactions.map((transaction, index) => (
+    <div key={index} className="border border-[#dfe1e6] rounded-md p-6 bg-white shadow-sm">
+      <div className="flex justify-between items-center mb-4">
+        <div>
+          <h3 className="text-gray-700 font-semibold">
+            Order ID: <span className="font-bold">{transaction.orderId}</span>
+          </h3>
+        </div>
+        <div className="text-right">
+          <p className="text-sm text-gray-500">
+            Status: <span className="font-semibold text-black">{transaction.status}</span>
+          </p>
+        </div>
+      </div>
 
-                                {/* Product Information */}
-                                <div className="flex items-center gap-4">
-                                    <img
-                                        src={`/images/products/${transaction.product.name
-                                            .toLowerCase()
-                                            .replace(" ", "-")}.jpg`}
-                                        alt={transaction.product.name}
-                                        className="w-20 h-20 object-cover rounded-md"
-                                    />
-                                    <div className="flex-grow">
-                                        <h4 className="text-lg font-semibold">{transaction.product.name}</h4>
-                                        <p className="text-gray-500">
-                                            Color: {transaction.product.color} | Size: {transaction.product.size} | Qty:{" "}
-                                            {transaction.product.qty}
-                                        </p>
-                                        <p className="text-gray-500 mt-2">{transaction.message}</p>
-                                    </div>
-                                    <div className="flex flex-col gap-2">
-                                        <button className="bg-black text-white px-4 py-2 rounded-lg">
-                                            {transaction.status === "WAITING PAYMENT"
-                                                ? "Complete Payment"
-                                                : transaction.status === "COMPLETED"
-                                                ? "Rate"
-                                                : "Complete Order"}
-                                        </button>
-                                        <button className="bg-gray-200 text-black px-4 py-2 rounded-lg">Detail</button>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+      {/* Divider */}
+      <hr className="border-t border-gray-300 mb-4" />
+
+      {/* Product Information */}
+      <div className="flex justify-between items-center gap-4">
+        <img
+          src={`/images/products/${transaction.product.name.toLowerCase().replace(" ", "-")}.jpg`}
+          alt={transaction.product.name}
+          className="w-20 h-20 object-cover rounded-md"
+        />
+        <div className="flex-grow">
+          <h4 className="text-lg font-semibold">{transaction.product.name}</h4>
+          <p className="text-gray-500">
+            Color: {transaction.product.color} | Size: {transaction.product.size} | Qty: {transaction.product.qty}
+          </p>
+          
+        </div>
+        <div className="text-right">
+          <p className="text-[#808897] text-sm">Total</p>
+          <p className="text-lg font-semibold text-[#272835]">{formatRupiah(transaction.product.price)}</p>
+        </div>
+      </div>
+      <br />
+      <hr className="border-t border-gray-300 mb-4" />
+
+      <div className="flex justify-between items-center mt-4">
+      <p className="text-gray-500 mt-2">{transaction.message}</p>
+        <div className="flex gap-4">
+          <button className="px-6 py-2 border border-[#a4abb8] text-[#0d0d12] rounded">
+            Detail
+          </button>
+          <button className="px-6 py-2 bg-[#0d0d12] text-white rounded">
+            {transaction.status === "WAITING PAYMENT"
+              ? "Complete Payment"
+              : transaction.status === "COMPLETED"
+              ? "Rate"
+              : "Complete Order"}
+          </button>
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
+
+
                 </div>
             </div>
         </UserLayout>
