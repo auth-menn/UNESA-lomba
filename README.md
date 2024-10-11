@@ -17,7 +17,7 @@ Sebelum menjalankan proyek ini, harap pastikan bahwa Anda telah memenuhi prasyar
    ```bash
    cp .env.example .env
 
-4. **Lakukan pembuatan .env**:
+4. **Lakukan Generate Key**:
    jalankan perintah berikut di direktori proyek:
    ```bash
    php artisan key:generate
