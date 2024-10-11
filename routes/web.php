@@ -38,7 +38,13 @@ Route::get('/shop', function(){
 Route::get('/detail-product', function(){
     return Inertia::render('DetailProduct');
 });
-Route::get('/shipping-adress', function(){
+Route::get('/sign-in', function(){
+    return Inertia::render('Login');
+});
+Route::get('/sign-up', function(){
+    return Inertia::render('Register');
+});
+Route::get('/shipping-address', function(){
     return Inertia::render('ShippingAdress');
 });
 Route::get('/transaction', function(){
@@ -52,6 +58,12 @@ Route::get('/account', function(){
 });
 Route::get('/confirm-order', function(){
     return Inertia::render('ConfirmOrder');
+});
+Route::get('/edit-profile', function(){
+    return Inertia::render('EditProfile');
+});
+Route::get('/virtual-room', function(){
+    return Inertia::render('VirtualRoom');
 });
 
 

@@ -9,7 +9,7 @@ const PaymentMethod = () => {
                 <div className="border border-gray-200 p-6 rounded-sm shadow-sm bg-white">
                     <label className="flex justify-between items-center">
                         <div className="flex items-center space-x-3">
-                            <img src="https://via.placeholder.com/50" alt="BCA" />
+                            <img src="img/bca.png" alt="BCA" />
                             <span>BCA Virtual Account</span>
                         </div>
                         {/* Radio input moved to the right */}
@@ -19,7 +19,7 @@ const PaymentMethod = () => {
                 <div className="border border-gray-200 p-6 rounded-sm shadow-sm bg-white">
                     <label className="flex justify-between items-center">
                         <div className="flex items-center space-x-3">
-                            <img src="https://via.placeholder.com/50" alt="Mandiri" />
+                            <img src="img/mandiri.png" alt="Mandiri" />
                             <span>Mandiri</span>
                         </div>
                         {/* Radio input moved to the right */}

@@ -3,9 +3,8 @@ import { FaShoppingBag, FaStar } from "react-icons/fa";
 import { MdCheckroom } from "react-icons/md";
 import { IoBagHandleOutline } from "react-icons/io5";
 
-export default function Card({ name }) {
+export default function CardFlashSale({ name }) {
     return (
-        <a href="/detail-product" className="relative w-80 h-96 shadow-md rounded-sm mb-3 flex-shrink-0 overflow-hidden block">
         <div className="relative w-80 h-96 shadow-md rounded-sm mb-3 flex-shrink-0 overflow-hidden">
             <img src="/img/model.png" alt="Product" className="w-full h-full object-cover" />
             
@@ -16,6 +15,7 @@ export default function Card({ name }) {
                 </div>
                 
                 <div>
+                <div className="bg-orange-600 text-white text-center">Flash Sale 30% Off</div>
                     <div className="bg-white bg-opacity-100 p-2 rounded-sm flex justify-between items-center gap-4">
                         <div className="gap-y-1">
                             <div className="flex items-center gap-x-1">
@@ -23,7 +23,7 @@ export default function Card({ name }) {
                                 <p className="text-xs font-light">(5.0)</p> 
                             </div>
                             <p className="text-base font-light text-black">Black Fashion Jacket</p>
-                            <p className="font-semibold">79.000 IDR</p>
+                            <p className="font-semibold text-orange-600">79.000 IDR</p>
                         </div>
                         <div className="border shadow p-2 bg-white">
                             <IoBagHandleOutline className="text-2xl text-gray-500" /> 
@@ -32,6 +32,5 @@ export default function Card({ name }) {
                 </div>
             </div>
         </div>
-        </a>
     );
 }

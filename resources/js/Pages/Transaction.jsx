@@ -72,12 +72,23 @@ export default function Transaction() {
     const filteredTransactions = transactions.filter((transaction) =>
         selectedStatus === "All Status" ? true : transaction.status.toUpperCase() === selectedStatus.toUpperCase()
     );
+    const handleButtonClick = () => {
+      window.location.href = '/confirm-order';
+  };
 
     return (
         <UserLayout>
-            <div className="py-32 flex gap-10">
-                {/* Sidebar */}
-                <Account name="Wahyu Kurnia" email="wahyukurniahandy@gmail.com" />
+            <div className="w-screen mx-auto py-32 sm:px-6 lg:px-24">
+            <nav className="text-sm breadcrumbs">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/profile">Profile</a></li>
+                        <li className="text-black font-bold">Transaction</li>
+                    </ul>
+                </nav>
+                <div className="mt-5 flex flex-col md:flex-row gap-8">
+                    {/* Account Sidebar */}
+                    <Account name="Wahyu Kurnia" email="wahyukurniahandy@gmail.com" activeRoute="/transaction"/>
 
                 {/* Main Content */}
                 <div className="flex-grow">
@@ -111,11 +122,11 @@ export default function Transaction() {
                                 <option>Oldest</option>
                             </select>
                         </div>
-                        <div className="relative">
+                        <div className="relative w-2/5">
                             <input
                                 type="text"
                                 placeholder="Search your Transaction"
-                                className="border border-gray-300 rounded-md p-2 pl-10"
+                                className="border border-gray-300 w-full rounded-md p-2 pl-10"
                             />
                             <MagnifyingGlassIcon className="w-5 h-5 text-gray-500 absolute left-3 top-1/2 transform -translate-y-1/2" />
                         </div>
@@ -144,7 +155,7 @@ export default function Transaction() {
       {/* Product Information */}
       <div className="flex justify-between items-center gap-4">
         <img
-          src={`/images/products/${transaction.product.name.toLowerCase().replace(" ", "-")}.jpg`}
+          src='img/black-jacket.png'
           alt={transaction.product.name}
           className="w-20 h-20 object-cover rounded-md"
         />
@@ -169,17 +180,21 @@ export default function Transaction() {
           <button className="px-6 py-2 border border-[#a4abb8] text-[#0d0d12] rounded">
             Detail
           </button>
-          <button className="px-6 py-2 bg-[#0d0d12] text-white rounded">
+          <button 
+            className="px-6 py-2 bg-[#0d0d12] text-white rounded" 
+            onClick={handleButtonClick}
+        >
             {transaction.status === "WAITING PAYMENT"
               ? "Complete Payment"
               : transaction.status === "COMPLETED"
               ? "Rate"
               : "Complete Order"}
-          </button>
+        </button>
         </div>
       </div>
     </div>
   ))}
+</div>
 </div>
 
 

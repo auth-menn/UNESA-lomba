@@ -34,6 +34,7 @@ body {
 .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
+    transition : smooth;
 }
 
 .cursor-grab {
@@ -53,6 +54,7 @@ body {
 .scrollbar-hide::-webkit-scrollbar {
     display: none;
 }
+
 
 
 

@@ -17,9 +17,7 @@ export default function Product() {
 
     return (
         <div className="w-full flex flex-col md:flex-row md:px-12 py-8">
-            {/* Bagian Kiri: Gambar Produk */}
             <div className="md:w-1/2 w-full p-4 relative">
-                {/* Main Image with Navigation Arrows */}
                 <div className="relative">
                     <div className="absolute top-1/2 left-0 transform -translate-y-1/2 p-2 cursor-pointer bg-white rounded-full shadow hover:bg-gray-200 transition-all z-10">
                         <ArrowLeftIcon className="h-6 w-6 text-gray-700" />
@@ -45,9 +43,7 @@ export default function Product() {
                 </div>
             </div>
 
-            {/* Bagian Kanan: Detail Produk */}
             <div className="md:w-1/2 w-full mt-8 md:mt-0 md:pl-8">
-                {/* Flash Sale */}
                 <div className="flex justify-between items-center mb-4">
                     <p className="bg-orange-100 text-red-500 px-2 py-1 inline-block max-w-max text-sm">
                         30% OFF
@@ -58,7 +54,6 @@ export default function Product() {
                 <h3 className="text-4xl font-bold text-red-500 mb-2">IDR 79.000</h3>
                 <p className="text-xl font-semibold text-gray-500 mb-4 line-through">IDR 100.000</p>
 
-                {/* Rating */}
                 <div className="flex items-center mb-4">
                     {[...Array(5)].map((_, index) => (
                         <StarIcon key={index} className='h-5 w-5 text-yellow-500' />  
@@ -90,7 +85,6 @@ export default function Product() {
                 </div>
                 <br />
 
-                {/* Deskripsi Produk */}
                 <h1>Description</h1>
                 <p className="text-gray-400 mb-6 leading-relaxed">
                     Find everything you need to look and feel your best, shop the latest fashion and lifestyle products. 
@@ -99,7 +93,6 @@ export default function Product() {
                 </p>
 
                 <div className='flex gap-12 '>
-                    {/* Available Colors */}
                     <div className="mb-6">
                         <p className="text-gray-400 mb-4">Available Colors:</p>
                         <div className="flex space-x-2">
@@ -110,7 +103,6 @@ export default function Product() {
                         </div>
                     </div>
 
-                    {/* Available Sizes */}
                     <div className="mb-6 px-56">
                         <p className="text-gray-400 mb-3">Available Size:</p>
                         <div className="flex space-x-2">
@@ -122,23 +114,21 @@ export default function Product() {
                     </div>
                 </div>
 
-                {/* Quantity & Add to Cart */}
                 <div className="flex items-center mb-6">
                     <p className="text-gray-400 mr-4">Quantity:</p>
-                    <button onClick={handleDecrement} className='border-2 px-2'>-</button>
+                    <button onClick={handleDecrement} className='border px-2'>-</button>
                     <input 
                         type="text" 
                         className="w-12 items-center justify-center text-center border-none bg-white text-black" 
                         value={quantity} 
                         readOnly
                     />
-                    <button onClick={handleIncrement} className='border-2 px-2 border-black'>+</button>
+                    <button onClick={handleIncrement} className='border-2 px-2 border'>+</button>
                     <button className="bg-black text-white py-2 px-4 ml-4 border border-black hover:bg-gray-800 transition-all">
                         Add to Cart
                     </button>
                 </div>
 
-                {/* Share Section */}
                 <div className="flex items-center space-x-4">
                     <p className="text-gray-400">Share:</p>
                     <div className="flex space-x-2 justify-center items-center text-center ">
@@ -166,7 +156,6 @@ export default function Product() {
                     </div>
                 </div>
 
-                {/* Buttons */}
                 <div className="flex items-center space-x-4 mt-6">
                     <button className="bg-white text-black py-2 px-6 border border-black hover:bg-gray-800 transition-all">
                         Try On
@@ -174,7 +163,6 @@ export default function Product() {
                     <button className="bg-black text-white w-80 py-2 px-6 transition-all">
                         Buy Now
                     </button>
-                    
                 </div>
             </div>
         </div>

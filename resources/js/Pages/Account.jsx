@@ -40,32 +40,34 @@ export default function EditProfile() {
 
     return (
         <UserLayout>
-            <div className="py-32 flex gap-10 justify-center">
-                {/* Sidebar */}
-                <div className="w-1/4">
-                    <Account name="Wahyu Kurnia" email="wahyukurniahandy@gmail.com" />
-                </div>
+          <div className="w-screen mx-auto py-32 sm:px-6 lg:px-24 ">
+                <nav className="text-sm breadcrumbs">
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/profile">Profile</a></li>
+                        <li className="text-black font-bold">Edit Profile</li>
+                    </ul>
+                </nav>
+                
+                <div className="mt-5 flex flex-col md:flex-row gap-8">
+                    {/* Account Sidebar */}
+                    <Account name="Wahyu Kurnia" email="wahyukurniahandy@gmail.com" activeRoute="/shipping-address"/>
+
 
                 {/* Main content */}
                 <div className="w-full max-w-4xl">
-                    <form onSubmit={handleSubmit} className="p-8 bg-white shadow-md rounded-md space-y-6">
+                    <form onSubmit={handleSubmit} className="p-8 bg-white shadow-md space-y-6">
                         <h1 className="text-xl font-bold mb-6">Detail Account</h1>
 
                         {/* Profile Picture */}
                         <div className="mb-6">
                             <label className="block font-medium text-gray-700">Profile Picture</label>
                             <div className="flex items-center gap-4">
-                                {formData.profilePicture ? (
                                     <img
-                                        src={formData.profilePicture}
+                                        src="img/profil-besar.png"
                                         alt="Profile"
                                         className="w-20 h-20 rounded-full object-cover"
                                     />
-                                ) : (
-                                    <div className="w-20 h-20 bg-gray-200 rounded-full flex items-center justify-center">
-                                        <span className="text-gray-500">No Photo</span>
-                                    </div>
-                                )}
                                 <div>
                                     <label className="block">
                                         <input
@@ -76,7 +78,7 @@ export default function EditProfile() {
                                         />
                                         <button
                                             type="button"
-                                            className="bg-gray-200 px-4 py-2 rounded-md text-sm text-gray-700"
+                                            className="bg-black px-4 py-2  text-sm text-white"
                                         >
                                             Upload Photo
                                         </button>
@@ -104,7 +106,7 @@ export default function EditProfile() {
                                     name="name"
                                     value={formData.name}
                                     onChange={handleInputChange}
-                                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                                    className="mt-1 block w-full p-2 border border-gray-300"
                                     required
                                 />
                             </div>
@@ -116,7 +118,7 @@ export default function EditProfile() {
                                     name="email"
                                     value={formData.email}
                                     onChange={handleInputChange}
-                                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                                    className="mt-1 block w-full p-2 border border-gray-300"
                                     required
                                 />
                             </div>
@@ -147,7 +149,7 @@ export default function EditProfile() {
                                     name="dateOfBirth"
                                     value={formData.dateOfBirth}
                                     onChange={handleInputChange}
-                                    className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                                    className="mt-1 block w-full p-2 border border-gray-300"
                                     required
                                 />
                             </div>
@@ -186,7 +188,7 @@ export default function EditProfile() {
                         <div className="flex justify-end">
                             <button
                                 type="submit"
-                                className="bg-black text-white px-6 py-2 rounded-md"
+                                className="bg-black text-white px-6 py-2"
                             >
                                 Save Profile
                             </button>
@@ -194,7 +196,7 @@ export default function EditProfile() {
                     </form>
 
                     {/* Newsletter Section */}
-                    <div className="mt-12 bg-gray-100 p-6 rounded-md">
+                    <div className="mt-12 bg-gray-100 p-6">
                         <h2 className="text-lg font-semibold mb-4">Join our News Collection</h2>
                         <p className="text-gray-600 mb-4">
                             Join our Newsletter and stay informed about Update Collection
@@ -207,13 +209,14 @@ export default function EditProfile() {
                             />
                             <button
                                 type="button"
-                                className="bg-black text-white px-6 py-2 rounded-r-md"
+                                className="bg-black text-white px-6 py-2 "
                             >
                                 Submit
                             </button>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </UserLayout>
     );

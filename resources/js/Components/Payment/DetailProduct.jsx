@@ -13,7 +13,7 @@ const DetailProduct = () => {
                 <div className="mt-4 space-y-4">
                     {[1, 2, 3].map((item, index) => (
                         <div key={index} className="flex justify-between items-center p-2 hover:bg-gray-50 rounded">
-                            <img src="https://via.placeholder.com/50" alt="product" className="w-16 h-16" />
+                            <img src="img/virtual-room/item-1.jpeg" alt="product" className="w-16 h-16" />
                             <div className="text-sm">
                                 <p>Black Jacket</p>
                                 <p>Color: Black | Size: L | Qty: 1</p>
